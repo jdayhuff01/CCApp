@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block page_content %}
+    
+    
+    <h1 class="text-center">Team View</h1>
+    <div class="row">
+        <div class = "container text-center col">
+            <table class="table table-striped">
+                {% for entry in gameRoster %}
+                    <thead><th class="container">{{ entry.team_1_name }}</th><th class="container">Makes</th><th>Shot%</th> </thead>
+                    {% if player1shot == 1 and currentTurn == 1 %}<tr class = "table-success">{% else %}<tr class = "">{% endif %}
+                        <td class="container">{{ entry.p1_team1 }}</td><td class="container text-center">{{ entry.p11_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP11 }}</td>
+                    </tr>
+                    {% if player2shot == 1 and currentTurn == 1 %}<tr class = "table table-success">{% else %}<tr class = "">{% endif %}
+                        <td class="container">{{ entry.p2_team1 }}</td><td class="container text-center">{{ entry.p21_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP21 }}</td>
+                    </tr>
+                    {% if player3shot == 1 and currentTurn == 1 %}<tr class = "table table-success">{% else %}<tr class = "">{% endif %}
+                        <td class="container">{{ entry.p3_team1 }}</td><td class="container text-center">{{ entry.p31_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP31 }}</td>
+                    </tr>
+                    {% if player4shot == 1 and currentTurn == 1 %}<tr class = "table table-success">{% else %}<tr class = "">{% endif %}
+                        <td class="container">{{ entry.p4_team1 }}</td><td class="container text-center">{{ entry.p41_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP41 }}</td>
+                    </tr>
+                    {% if player5shot == 1 and currentTurn == 1 %}<tr class = "table table-success">{% else %}<tr class = "">{% endif %}
+                        <td class="container">{{ entry.p5_team1 }}</td><td class="container text-center">{{ entry.p51_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP51 }}</td>
+                    </tr>
+                    {% if player6shot == 1 and currentTurn == 1 %}<tr class = "table table-success">{% else %}<tr class = "">{% endif %}
+                        <td class="container">{{ entry.p6_team1 }}</td><td class="container text-center">{{ entry.p61_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP61 }}</td>
+                    </tr>
+                    <tr class="mt-2"><th class="container">Cups Left</th><th class="container">{{ entry.team1_cups }}</th></tr>
+                {% endfor %}
+            </table>
+        </div>  
+        <div class = "container text-center col">
+            <table class="table table-striped">
+                {% for entry in gameRoster %}
+                <thead class = ""><th scope="col" class="container">{{ entry.team_2_name }}</th><th scope="col" class="container">Makes</th><th>Shot%</th></tr>
+                {% if player1shot == 1 and currentTurn == 2 %}<tr class = "table-success">{% else %}<tr class = "">{% endif %}
+                    <td class="container text-muted">{{ entry.p1_team2 }}</td><td class="container text-center">{{ entry.p12_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP12 }}</td>
+                </tr>
+                {% if player2shot == 1 and currentTurn == 2 %}<tr class = "table-success">{% else %}<tr class = "text-muted">{% endif %}
+                    <td class="container">{{ entry.p2_team2 }}</td><td class="container text-center">{{ entry.p22_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP22 }}</td>
+                </tr>
+                {% if player3shot == 1 and currentTurn == 2 %}<tr class = "table-success">{% else %}<tr class = "text-muted">{% endif %}
+                    <td class="container">{{ entry.p3_team2 }}</td><td class="container text-center">{{ entry.p32_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP32 }}</td>
+                </tr>
+                {% if player4shot == 1 and currentTurn == 2 %}<tr class = "table-success">{% else %}<tr class = "text-muted">{% endif %}
+                    <td class="container">{{ entry.p4_team2 }}</td><td class="container text-center">{{ entry.p42_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP42 }}</td>
+                </tr>
+                {% if player5shot == 1 and currentTurn == 2 %}<tr class = "table-success">{% else %}<tr class = "text-muted">{% endif %}
+                    <td class="container">{{ entry.p5_team2 }}</td><td class="container text-center">{{ entry.p52_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP52 }}</td>
+                </tr>
+                {% if player6shot == 1 and currentTurn == 2 %}<tr class = "table-success">{% else %}<tr class = "text-muted">{% endif %}
+                    <td class="container">{{ entry.p6_team2 }}</td><td class="container text-center">{{ entry.p62_makes }}</td><td class="container text-center">{{ entry.shootingPercentageP62 }}</td>
+                </tr>
+                <tr class="mt-2"><th class="container">Cups Left</th><th class="container">{{ entry.team2_cups }}</th></tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="container mt-2">
+        
+        <h2 class="text-center">{{ shooterName }}</h2>
+        <table class = "d-flex justify-content-center">
+            <tr>
+                <th><a class="btn btn-success btn-lg mx-auto" href='{% url 'shotForm' 1 %}'>MAKE</a></th>
+            
+                <th><a class="btn btn-danger btn-lg mx-auto .ps-3" href='{% url 'shotForm' 0 %}'>MISS</a></th>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <a class="btn btn-danger btn-lg mx-auto" href='{% url 'GameReset' %}'> RESET GAME</a>
+        <p class="text-center">DO NOT REFRESH PAGE</p>
+        
+    </footer>
+    
+{% endblock %} 

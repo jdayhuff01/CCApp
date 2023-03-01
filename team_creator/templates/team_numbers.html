@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block page_content %}
+    <form action="/team_players/" method="post">
+        <div class="row"></div>
+            <div class="column-sm">
+                <h1>Team 1</h1>
+                
+                    <label for="your_name">P1: </label>
+                    <input id="your_name" type="text" name="your_name" value="{{ team1_count }}">
+                    
+            </div>
+            
+            <div class="column-sm">
+                <h1>Team 2</h1>
+                    <label for="your_name">P1: </label>
+                    <input id="your_name" type="text" name="your_name" value="{{ team2_count }}">
+            </div>
+            <div class="column-sm">
+                <input type="submit" value="OK">
+            </div>
+        </div>
+    </form>
+
+{% endblock %} 
+

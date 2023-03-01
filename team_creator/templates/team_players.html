@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block page_content %}
+<div class="container-fluid">
+    <h1 class="text-center">Team Players Page</h1>
+    
+    <form action="{% url 'TeamForm' %}" method="POST" enctype="multipart/form-data">
+        <div class = "row">  
+            <div class="col"> 
+                <h1 class="text-center">Team 1 Players</h1>      
+                {{ form1.as_p }}
+            </div>  
+            
+            
+        </div>
+        <button>Submit</button>          
+    </form>
+</div>
+{% endblock %} 

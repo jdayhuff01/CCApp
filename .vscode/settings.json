@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/db50bc6c-2f06-4d14-9844-b6e5b7106d18/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/CCStatTracker",
+    "appService.deploySubpath": "."
+}
