@@ -28,7 +28,7 @@ DEBUG = False
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['https://ccstattracker.azurewebsites.net']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,7 +50,6 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleWare',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
 ]
@@ -122,9 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStatiFilesStorage'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
